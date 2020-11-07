@@ -19,7 +19,7 @@ def redirect_func(url_id):
     return(f'ID {url_id} wasn\'t found.')
 
 @app.route('/short', methods=['POST'])
-def shorten_url(url):
+def shorten_url():
   url_data = request.get_json()
   url_uuid = uuid.uuid4().hex[:8]
   red.set(url_uuid, url_data['url'])
