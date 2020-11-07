@@ -34,4 +34,19 @@ Example with curl :
 
 ```
 curl -d '{"url":"https://example.com"} -X POST http://[serverurl]/short'
+
+f68f2184
+```
+
+Example for using given UUID : 
+
+```
+curl -LI http://[serverurl]/f68f2184
+
+HTTP/1.0 302 FOUND
+Content-Type: text/html; charset=utf-8
+Content-Length: 247
+Location: https://example.com/
+Server: Werkzeug/1.0.1 Python/3.7.3
+Date: Sat, 07 Nov 2020 21:50:28 GMT
 ```
