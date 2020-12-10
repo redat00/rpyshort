@@ -20,6 +20,14 @@ def redirect_func(url_id):
 
 @app.route('/short', methods=['POST'])
 def shorten_url():
+  url_data = request.form['url_to_shorten']
+  url_uuid = uuid.uuid4().hex[:8]
+  red.set(url_uuid, url_data)
+  print(url_uuid)
+  return(url_uuid)
+
+@app.route('/short_json', methods=['POST'])
+def shorten_url():
   url_data = request.get_json()
   url_uuid = uuid.uuid4().hex[:8]
   red.set(url_uuid, url_data['url'])
